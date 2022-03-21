@@ -1,0 +1,20 @@
+--cpu Cortex-M3
+".\objects\rtc.o"
+".\objects\main.o"
+".\objects\lcd.o"
+"C:\Users\usuario\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\LIB\ARM\RTX_CM3.lib"
+".\objects\rtx_conf_cm.o"
+".\objects\phy_dp83848c.o"
+".\objects\emac_lpc17xx.o"
+".\objects\ssp_lpc17xx.o"
+".\objects\gpdma_lpc17xx.o"
+".\objects\gpio_lpc17xx.o"
+".\objects\pin_lpc17xx.o"
+".\objects\startup_lpc17xx.o"
+".\objects\system_lpc17xx.o"
+"C:\Users\usuario\AppData\Local\Arm\Packs\Keil\MDK-Middleware\7.13.0\Network\Lib\ARM\Net4_CM3_L.lib"
+".\objects\net_config.o"
+--strict --scatter ".\Objects\practica2.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\practica2.map" -o .\Objects\practica2.axf
