@@ -33,6 +33,7 @@ extern bool LEDrun;
 static uint8_t P2;
 
 char lcd_text[2][20+1];
+char SNTP_ip[18];
 
 extern bool escribirLCD1;
 extern bool escribirLCD2;
@@ -47,6 +48,7 @@ typedef struct {
 // Process query string received by GET request.
 void cgi_process_query (const char *qstr) {
   char var[40];
+	
 
   do {
     // Loop through all the parameters
@@ -87,6 +89,7 @@ void cgi_process_query (const char *qstr) {
 //            - 5 = the same as 4, but with more XML data to follow.
 void cgi_process_data (uint8_t code, const char *data, uint32_t len) {
   char var[40],passw[12];
+	
    
 	//LEDrun=true;
   if (code != 0) {
@@ -157,6 +160,11 @@ void cgi_process_data (uint8_t code, const char *data, uint32_t len) {
         strcpy (lcd_text[1], var+5);
 				escribirLCD2=true;
       }
+			else if (strncmp (var, "SNTP=", 5) == 0) {
+        // LCD Module line 2 text
+        strcpy (SNTP_ip, var+5);
+				
+      }
     }
   } while (data);
   LED_SetOut (P2);
@@ -169,7 +177,7 @@ uint32_t cgi_script (const char *env, char *buf, uint32_t buflen, uint32_t *pcgi
   uint32_t len = 0;
   uint8_t id;
   static uint32_t adv;
-	char fecha[22]=" 13:28:56 23/03/2022\0";
+	char fecha[22];
 
   switch (env[0]) {
     // Analyze a 'c' script line starting position 2
@@ -339,6 +347,10 @@ uint32_t cgi_script (const char *env, char *buf, uint32_t buflen, uint32_t *pcgi
 		      get_date( &dia_ver,&mes_ver,&ano_ver ); 
 		      sprintf(fecha, "%d : %d : %d     %d %d %d", hora_ver, min_ver, sec_ver, dia_ver, mes_ver, ano_ver);
           len = sprintf (buf, &env[1], fecha);
+         
+      break;
+		case 'l':
+            len = sprintf (buf, &env[4], SNTP_ip);
          
       break;
   }

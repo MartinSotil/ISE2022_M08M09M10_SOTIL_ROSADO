@@ -22,14 +22,17 @@ t <form action="RTC.cgi" method="post" name="ad">
 t <input type="hidden" value="ad" name="pg">
 t <table border=0 width=99%><font size="3">
 t <tr style="background-color: #aaccff">
-t  <th width=70%>RTC Time</th></tr>
+t <th width=70%>RTC Time</th></tr>
 t <td align="center">
 t <input type="text" readonly style="background-color: transparent; border: 0px"
 c j size="10" id="ad_value" value="%s"></td>
+t <tr><td><img src=pabb.gif>Choose IP adress for SNTP server'</td><tr>
+c l <tr><td><input type=text name=SNTP size=18 maxlength=18 value="%s"></td></tr>
+t <tr><td><input type=submit name=set value="Send" id="sbm"></td></tr>
 t </font></table>
 t <p align=center>
 t <input type=button value="Refresh" onclick="updateMultiple(formUpdate,plotADGraph)">
-t Periodic:<input type="checkbox" id="adChkBox" onclick="periodicUpdateAd()">
+t  Periodic:<input type="checkbox" id="adChkBox" onclick="periodicUpdateAd()">
 t </p></form>
 i pg_footer.inc
 . End of script must be closed with period
