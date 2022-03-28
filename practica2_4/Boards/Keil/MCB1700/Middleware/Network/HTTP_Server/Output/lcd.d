@@ -23,4 +23,13 @@
 .\output\lcd.o: LCD.h
 .\output\lcd.o: RTC.h
 .\output\lcd.o: C:\Users\Propietario\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC\cmsis_os.h
+.\output\lcd.o: HTTP_Server_CGI.h
+.\output\lcd.o: C:\Users\Propietario\AppData\Local\Arm\Packs\Keil\MDK-Middleware\7.13.0\Network_v6\Include\rl_net.h
+.\output\lcd.o: C:\Users\Propietario\AppData\Local\Arm\Packs\Keil\MDK-Middleware\7.13.0\Network_v6\Include\rl_net_lib.h
+.\output\lcd.o: C:\Users\Propietario\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Driver\Include\Driver_USART.h
+.\output\lcd.o: C:\Users\Propietario\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Driver\Include\Driver_ETH_MAC.h
+.\output\lcd.o: C:\Users\Propietario\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Driver\Include\Driver_ETH.h
+.\output\lcd.o: C:\Users\Propietario\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Driver\Include\Driver_ETH_PHY.h
+.\output\lcd.o: C:\Users\Propietario\AppData\Local\Arm\Packs\Keil\MDK-Middleware\7.13.0\Network_v6\Include\net_modem.h
+.\output\lcd.o: pinoutConfigure.h
 .\output\lcd.o: Arial12x12.h

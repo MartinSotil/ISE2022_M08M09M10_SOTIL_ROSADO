@@ -13,11 +13,14 @@
 #include "pinoutConfigure.h"
 #include "LCD.h"
 #include "adc.h"
+#include "SNTP.h"
+#include "gestor_pulsador.h"
 
 //extern GLCD_FONT GLCD_Font_6x8;
 //extern GLCD_FONT GLCD_Font_16x24;
 
 bool LEDrun;
+
 
 bool escribirLCD1=false;
 bool escribirLCD2=false;
@@ -27,11 +30,14 @@ uint16_t medida=0;
 
 static void BlinkLed (void const *arg);
 
+static void Servidor_SNTP (void const *arg);
+osThreadDef(Servidor_SNTP, osPriorityNormal, 1, 0);
+
 osThreadDef(BlinkLed, osPriorityNormal, 1, 0);
 
-static void pantalla (void const *arg);
 
-osThreadDef(pantalla, osPriorityNormal, 1, 0);
+
+
 
 //static void ADC_hilo (void const *arg);
 
@@ -72,18 +78,6 @@ static void BlinkLed (void const *arg) {
 	}
 }
 
-static void pantalla (void const *arg){
-	int i;
-	while(1){
-		if(escribirLCD1){
-		  EscribeFrase( lcd_text[0] );
-			escribirLCD1=false;
- 		} else if (escribirLCD2){
-      EscribeFrase2( lcd_text[1] );
-      escribirLCD2=false;
-    }
-	}
-}
 
 /*static void ADC_hilo (void const *arg) {
 	while(1) {
@@ -95,6 +89,22 @@ static void pantalla (void const *arg){
 	}
 }*/
 
+static void Servidor_SNTP (void const *arg) {
+  osEvent sntp_pulso;
+	
+	while(1){
+	
+		sntp_pulso = osSignalWait(0,osWaitForever);
+		
+		switch(sntp_pulso.value.signals){
+		
+			  case 0x0004:
+				get_time_ntp();
+				osSignalClear(id_SNTP, 0x0004);
+				break;
+   }
+	}
+}
 
 /*----------------------------------------------------------------------------
   Main Thread 'main': Run Network
@@ -107,14 +117,16 @@ int main (void) {
   init_adc();
 	init_RTC();
 	init(); //Inicializar el display LCD
+  Init_pulsador();
 
 	osThreadCreate (osThread(BlinkLed), NULL);
-  osThreadCreate (osThread(pantalla), NULL);
+	id_SNTP=osThreadCreate(osThread(Servidor_SNTP), NULL);
   //osThreadCreate (osThread(ADC_hilo), NULL);
 	habilitar_deshabilitar_RTC( HABILITADO ); //Habilitar el RTC
 	interrupciones_RTC_deshabilitar(); //Deshabilitamos las interrupciones
 	generar_alarma_RTC( SEGUNDOS );
 	set_alarma( SEGUNDOS,  0 );
+  osSignalSet(id_SNTP,0x0004);
 	osKernelStart ();
 
   while(1) {

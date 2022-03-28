@@ -4,6 +4,7 @@
 #include "LPC17xx.h"
 #include "LCD.h"
 #include "cmsis_os.h"
+#include "HTTP_Server_CGI.h"
 
 typedef enum{ 
 	HABILITADO=0, 
@@ -29,13 +30,19 @@ extern int ano_ver;
 
 extern bool actualizar_segundo;
 
-void pantalla_RTC (void const *arg);
-void alarma (void const *arg);
 
-extern osThreadId id_pantalla_RTC;
+void alarma (void const *arg);
+ void pantalla (void const *arg);
+
 extern osThreadId id_alarma;
+extern osThreadId id_pantalla;
+
+
+void pantalla_RTC (void );
 
 void init_RTC( void );
+
+
 
 void habilitar_deshabilitar_RTC( estado_reloj estado );
 

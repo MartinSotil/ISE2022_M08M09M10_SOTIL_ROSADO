@@ -28,6 +28,7 @@ extern struct http_cfg  http_config;
 #define http_auth_passw http_config.Passw
 
 extern bool LEDrun;
+extern bool SNTP_Choose_IP;
 
 // Local variables.
 static uint8_t P2;
@@ -137,6 +138,12 @@ void cgi_process_data (uint8_t code, const char *data, uint32_t len) {
 			else if (strcmp (var, "ctrl=Running Lights") == 0) {
 				LEDrun=true;
       }	
+			else if (strcmp (var, "ctrl=150,214,94,10") == 0) {
+				SNTP_Choose_IP=false;
+      }	
+			else if (strcmp (var, "ctrl=150,214,94,5") == 0) {
+				SNTP_Choose_IP=true;
+      }	
       else if ((strncmp (var, "pw0=", 4) == 0) ||
                (strncmp (var, "pw2=", 4) == 0)) {
         // Change password, retyped password
@@ -153,12 +160,12 @@ void cgi_process_data (uint8_t code, const char *data, uint32_t len) {
       else if (strncmp (var, "lcd1=", 5) == 0) {
         // LCD Module line 1 text
         strcpy (lcd_text[0], var+5);
-				escribirLCD1=true;
+				osSignalSet(id_pantalla,0x0001);
       }
       else if (strncmp (var, "lcd2=", 5) == 0) {
         // LCD Module line 2 text
         strcpy (lcd_text[1], var+5);
-				escribirLCD2=true;
+				osSignalSet(id_pantalla,0x0002);
       }
 			else if (strncmp (var, "SNTP=", 5) == 0) {
         // LCD Module line 2 text
@@ -185,7 +192,7 @@ uint32_t cgi_script (const char *env, char *buf, uint32_t buflen, uint32_t *pcgi
       // Network parameters from 'network.cgi'
       switch (env[2]) {
         case 'i':
-          // Write local IP address
+          // Write local IP addressd
           len = sprintf (buf, &env[4], ip4_ntoa (LocM.IpAddr));
           break;
         case 'm':
@@ -338,6 +345,7 @@ uint32_t cgi_script (const char *env, char *buf, uint32_t buflen, uint32_t *pcgi
 		      get_date( &dia_ver,&mes_ver,&ano_ver ); 
 		      sprintf(fecha, "%d : %d : %d     %d %d %d", hora_ver, min_ver, sec_ver, dia_ver, mes_ver, ano_ver);
           len = sprintf (buf, &env[4], fecha);
+					osSignalSet(id_pantalla,0x0003);
          
       break;
 		
@@ -347,12 +355,23 @@ uint32_t cgi_script (const char *env, char *buf, uint32_t buflen, uint32_t *pcgi
 		      get_date( &dia_ver,&mes_ver,&ano_ver ); 
 		      sprintf(fecha, "%d : %d : %d     %d %d %d", hora_ver, min_ver, sec_ver, dia_ver, mes_ver, ano_ver);
           len = sprintf (buf, &env[1], fecha);
+					osSignalSet(id_pantalla,0x0003);
          
       break;
 		case 'l':
             len = sprintf (buf, &env[4], SNTP_ip);
          
       break;
+		
+		
+		 case 'm':
+      
+      if (env[2] == 'c') {
+        
+        len = sprintf (buf, &env[4], SNTP_Choose_IP ?     ""     : "selected",
+                                     SNTP_Choose_IP ? "selected" :    ""     );
+			}
+        break;
   }
   return (len);
 }

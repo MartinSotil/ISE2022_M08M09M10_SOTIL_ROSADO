@@ -33,3 +33,8 @@
 .\output\http_server.o: LCD.h
 .\output\http_server.o: RTC.h
 .\output\http_server.o: adc.h
+.\output\http_server.o: SNTP.h
+.\output\http_server.o: LCD.h
+.\output\http_server.o: D:\PROGRAMAS\Keil\ARM\ARMCC\Bin\..\include\time.h
+.\output\http_server.o: gestor_pulsador.h
+.\output\http_server.o: LCD.h

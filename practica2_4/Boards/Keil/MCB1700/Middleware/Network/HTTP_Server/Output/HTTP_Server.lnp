@@ -6,6 +6,8 @@
 ".\output\adc.o"
 ".\output\lcd.o"
 ".\output\rtc.o"
+".\output\sntp.o"
+".\output\gestor_pulsador.o"
 "C:\Users\Propietario\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\LIB\ARM\RTX_CM3.lib"
 ".\output\rtx_conf_cm.o"
 ".\output\phy_dp83848c.o"

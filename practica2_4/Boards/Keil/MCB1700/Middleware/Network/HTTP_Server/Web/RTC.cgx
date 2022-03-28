@@ -1,6 +1,6 @@
 t <form>
 t <text>
-t <id>ad_value</id>
+t <id>RTC_value</id>
 c k<value>%s</value>
 t </text>
 t </form>

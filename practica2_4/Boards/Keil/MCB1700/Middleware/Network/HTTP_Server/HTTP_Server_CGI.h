@@ -13,5 +13,6 @@ extern bool bool_leds_barrido;
 extern char lcd_text[2][20+1];
 
 extern bool LEDrun;
+extern bool SNTP_Choose_IP;
 
 #endif

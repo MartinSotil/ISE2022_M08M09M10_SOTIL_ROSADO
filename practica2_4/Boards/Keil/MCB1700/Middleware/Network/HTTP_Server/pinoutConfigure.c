@@ -9,7 +9,7 @@ led leds[4];
 
 uint8_t num_led=0x01;
 
-void pinConfiguration(){
+void pinConfiguration(void){
 	
 	int i;
 

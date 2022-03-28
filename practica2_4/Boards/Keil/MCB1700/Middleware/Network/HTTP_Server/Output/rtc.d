@@ -22,3 +22,15 @@
 .\output\rtc.o: D:\PROGRAMAS\Keil\ARM\ARMCC\Bin\..\include\string.h
 .\output\rtc.o: RTC.h
 .\output\rtc.o: C:\Users\Propietario\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC\cmsis_os.h
+.\output\rtc.o: HTTP_Server_CGI.h
+.\output\rtc.o: C:\Users\Propietario\AppData\Local\Arm\Packs\Keil\MDK-Middleware\7.13.0\Network_v6\Include\rl_net.h
+.\output\rtc.o: C:\Users\Propietario\AppData\Local\Arm\Packs\Keil\MDK-Middleware\7.13.0\Network_v6\Include\rl_net_lib.h
+.\output\rtc.o: C:\Users\Propietario\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Driver\Include\Driver_USART.h
+.\output\rtc.o: C:\Users\Propietario\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Driver\Include\Driver_ETH_MAC.h
+.\output\rtc.o: C:\Users\Propietario\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Driver\Include\Driver_ETH.h
+.\output\rtc.o: C:\Users\Propietario\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Driver\Include\Driver_ETH_PHY.h
+.\output\rtc.o: C:\Users\Propietario\AppData\Local\Arm\Packs\Keil\MDK-Middleware\7.13.0\Network_v6\Include\net_modem.h
+.\output\rtc.o: pinoutConfigure.h
+.\output\rtc.o: SNTP.h
+.\output\rtc.o: LCD.h
+.\output\rtc.o: D:\PROGRAMAS\Keil\ARM\ARMCC\Bin\..\include\time.h

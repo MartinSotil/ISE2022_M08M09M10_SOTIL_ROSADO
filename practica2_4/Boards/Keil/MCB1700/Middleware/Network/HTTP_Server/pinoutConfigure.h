@@ -12,7 +12,7 @@
 #define pinLed3 21
 #define pinLed4 23
 
-void pinConfiguration();
+void pinConfiguration(void);
 
 void funcionalidadLeds( uint8_t led);
 

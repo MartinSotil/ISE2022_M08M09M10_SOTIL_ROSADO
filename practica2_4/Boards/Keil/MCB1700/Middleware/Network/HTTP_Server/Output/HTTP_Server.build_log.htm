@@ -22,7 +22,7 @@ Dialog DLL:      TARMP1.DLL V1.26.0.0
  
 <h2>Project:</h2>
 F:\UNIVERSIDAD\ISE\git_ISE\ISE2022_M08M09M10_SOTIL_ROSADO\practica2_4\Boards\Keil\MCB1700\Middleware\Network\HTTP_Server\HTTP_Server.uvprojx
-Project File Date:  03/23/2022
+Project File Date:  03/28/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\PROGRAMAS\Keil\ARM\ARMCC\Bin'
@@ -64,41 +64,46 @@ adc.c(22): warning:  #61-D: integer operation result is out of range
 adc.c(22): warning:  #68-D: integer conversion resulted in a change of sign
   	LPC_PINCON->PINSEL3 |= PINSEL_ADC05;
 adc.c: 2 warnings, 0 errors
-compiling HTTP_Server.c...
-pinoutConfigure.h(15): warning:  #1295-D: Deprecated declaration pinConfiguration - give arg types
-  void pinConfiguration();
-HTTP_Server_CGI.h(17): warning:  #1-D: last line of file ends without a newline
-  #endif
-HTTP_Server.c(54): warning:  #940-D: missing return statement at end of non-void function "get_button" 
-  }
-HTTP_Server.c(76): warning:  #177-D: variable "i"  was declared but never referenced
-  	int i;
-HTTP_Server.c: 4 warnings, 0 errors
 compiling pinoutConfigure.c...
-pinoutConfigure.h(15): warning:  #1295-D: Deprecated declaration pinConfiguration - give arg types
-  void pinConfiguration();
-pinoutConfigure.c: 1 warning, 0 errors
+compiling HTTP_Server.c...
+SNTP.h(24): warning:  #1-D: last line of file ends without a newline
+   
+gestor_pulsador.h(11): warning:  #1-D: last line of file ends without a newline
+  #endif
+HTTP_Server.c(60): warning:  #940-D: missing return statement at end of non-void function "get_button" 
+  }
+HTTP_Server.c: 3 warnings, 0 errors
 compiling RTC.c...
-compiling RTX_Conf_CM.c...
+SNTP.h(24): warning:  #1-D: last line of file ends without a newline
+   
+RTC.c: 1 warning, 0 errors
 compiling LCD.c...
 compiling HTTP_Server_CGI.c...
-pinoutConfigure.h(15): warning:  #1295-D: Deprecated declaration pinConfiguration - give arg types
-  void pinConfiguration();
-HTTP_Server_CGI.h(17): warning:  #1-D: last line of file ends without a newline
-  #endif
-HTTP_Server_CGI.c: 2 warnings, 0 errors
+compiling RTX_Conf_CM.c...
+compiling SNTP.c...
+SNTP.h(24): warning:  #1-D: last line of file ends without a newline
+   
+SNTP.c(18): error:  #137: expression must be a modifiable lvalue
+  		ntp_server1=ntp_server[0];
+SNTP.c(20): error:  #137: expression must be a modifiable lvalue
+  	}else{ntp_server1=ntp_server[1];}
+SNTP.c: 1 warning, 2 errors
 compiling PHY_DP83848C.c...
+compiling gestor_pulsador.c...
+SNTP.h(24): warning:  #1-D: last line of file ends without a newline
+   
+gestor_pulsador.h(11): warning:  #1-D: last line of file ends without a newline
+  #endif
+gestor_pulsador.c: 2 warnings, 0 errors
 assembling startup_LPC17xx.s...
 compiling GPIO_LPC17xx.c...
-compiling PIN_LPC17xx.c...
 compiling GPDMA_LPC17xx.c...
-compiling Net_Config.c...
+compiling PIN_LPC17xx.c...
 compiling EMAC_LPC17xx.c...
-compiling system_LPC17xx.c...
+compiling Net_Config.c...
 compiling SSP_LPC17xx.c...
-linking...
-Program Size: Code=40056 RO-data=34292 RW-data=264 ZI-data=32088  
-".\Output\HTTP_Server.axf" - 0 Error(s), 9 Warning(s).
+compiling system_LPC17xx.c...
+".\Output\HTTP_Server.axf" - 2 Error(s), 9 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -136,6 +141,7 @@ Package Vendor: Keil
                 Middleware for Keil MDK-Professional and MDK-Plus
    * Component: CORE Variant: Release Version: 6.7.7
    * Component: ETH Version: 6.7.7
+   * Component: SNTP Client Version: 6.7.7
    * Component: Web Server Compact Version: 6.7.7
    * Component: TCP Version: 6.7.7
    * Component: UDP Version: 6.7.7
@@ -167,19 +173,19 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: ARM::CMSIS:RTOS:Keil RTX:4.82.0
-      Source file:   CMSIS\RTOS\RTX\Templates\RTX_Conf_CM.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MsgQueue.c
       Include file:  CMSIS\RTOS\RTX\UserCodeTemplates\osObjects.h
-      Source file:   CMSIS\RTOS\RTX\SRC\ARM\SVC_Table.s
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Thread.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Timer.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MailQueue.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MemPool.c
-      Library file:  CMSIS\RTOS\RTX\LIB\ARM\RTX_CM3.lib
       Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Semaphore.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\main.c
-      Include file:  CMSIS\RTOS\RTX\INC\cmsis_os.h
+      Library file:  CMSIS\RTOS\RTX\LIB\ARM\RTX_CM3.lib
+      Source file:   CMSIS\RTOS\RTX\SRC\ARM\SVC_Table.s
+      Source file:   CMSIS\RTOS\RTX\Templates\RTX_Conf_CM.c
       Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Mutex.c
+      Include file:  CMSIS\RTOS\RTX\INC\cmsis_os.h
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MailQueue.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Thread.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\main.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Timer.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MemPool.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MsgQueue.c
 
    * Component: Keil.MDK-Pro Net_v6::Network:CORE:Release:6.7.7
       Include file:  Network_v6\Include\rl_net.h
@@ -189,11 +195,14 @@ Package Vendor: Keil
    * Component: Keil.MDK-Pro Net_v6::Network:Interface:ETH:6.7.7
       Include file:  Network_v6\Config\Net_Config_ETH.h
 
+   * Component: Keil.MDK-Pro Net_v6::Network:Service:SNTP Client:6.7.7
+      Include file:  Network_v6\Config\Net_Config_SNTP_Client.h
+
    * Component: Keil.MDK-Pro Net_v6::Network:Service:Web Server Compact:6.7.7
-      Source file:   Network_v6\Template\HTTP_Server_Error.c
       Include file:  Network_v6\Config\Net_Config_HTTP_Server.h
       Source file:   Network_v6\Template\HTTP_Server_CGI.c
       Source file:   Network_v6\Template\HTTP_Server_Access.c
+      Source file:   Network_v6\Template\HTTP_Server_Error.c
       Source file:   Network_v6\Template\HTTP_Server_Multiuser.c
 
    * Component: Keil.MDK-Pro Net_v6::Network:Socket:TCP:6.7.7
@@ -202,8 +211,8 @@ Package Vendor: Keil
       Source file:   Network_v6\Template\TCP_Socket_Client.c
 
    * Component: Keil.MDK-Pro Net_v6::Network:Socket:UDP:6.7.7
-      Include file:  Network_v6\Config\Net_Config_UDP.h
       Source file:   Network_v6\Template\UDP_Socket.c
+      Include file:  Network_v6\Config\Net_Config_UDP.h
 
    * Component: Keil::CMSIS Driver:Ethernet MAC:2.11.0
       Source file:   RTE_Driver\EMAC_LPC17xx.c
@@ -223,15 +232,16 @@ Package Vendor: Keil
       Include file:  RTE_Driver\GPIO_LPC17xx.h
 
    * Component: Keil::Device:PIN:1.0.0
-      Include file:  RTE_Driver\PIN_LPC17xx.h
       Source file:   RTE_Driver\PIN_LPC17xx.c
+      Include file:  RTE_Driver\PIN_LPC17xx.h
 
    * Component: Keil::Device:Startup:1.0.0
       Include file:  RTE_Driver\Config\RTE_Device.h
       Source file:   Device\Source\ARM\startup_LPC17xx.s
       Source file:   Device\Source\system_LPC17xx.c
       Include file:  Device\Include\LPC17xx.h
-Build Time Elapsed:  00:00:02
+Target not created.
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

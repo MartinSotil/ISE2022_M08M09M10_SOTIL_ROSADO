@@ -1,4 +1,6 @@
 #include "RTC.h"
+#include "HTTP_Server_CGI.h"
+#include "SNTP.h"
 
 int hora_ver;
 int min_ver;
@@ -8,13 +10,54 @@ int mes_ver;
 int ano_ver;
 int ii=0;
 bool actualizar_segundo=false;
+int contador_alarma=0;
 
-osThreadId id_pantalla_RTC;
 osThreadId id_alarma;
-osThreadDef(pantalla_RTC, osPriorityNormal, 1, 0);
+ osThreadId id_pantalla;
+osThreadDef(pantalla, osPriorityNormal, 1, 0);
 osThreadDef(alarma, osPriorityNormal, 1, 0);
 
+void pantalla_RTC (void ){
+  
 
+		get_time( &hora_ver, &min_ver, &sec_ver); //Recogemos la hora actual
+		pintarHoraPrimeraLinea(hora_ver,min_ver,sec_ver);
+    get_date( &dia_ver,&mes_ver,&ano_ver ); //Recogemos la fecha actual
+		pintarFechaLinea( dia_ver,mes_ver,ano_ver );
+		
+	
+}
+
+static void pantalla (void const *arg){
+	
+	osEvent eleccion_pantalla;
+	while(1){
+		
+		eleccion_pantalla = osSignalWait(0,osWaitForever);
+		
+		switch(eleccion_pantalla.value.signals){
+		
+			  case 0x0001:
+				EscribeFrase( lcd_text[0] );
+				osSignalClear(id_pantalla, 0x0001);
+				break;
+				
+				case 0x0002:
+				EscribeFrase2( lcd_text[1] );
+				osSignalClear(id_pantalla, 0x0002);
+				break;
+				
+				case 0x0003:
+				pantalla_RTC();
+				osSignalClear(id_pantalla, 0x0003);
+				break;
+				
+				
+   }
+}
+	}
+
+	
 void alarma (void const *arg){
 
 	osEvent alarma_pulso;
@@ -26,6 +69,12 @@ void alarma (void const *arg){
 		switch(alarma_pulso.value.signals){
 		
 			case 0x0001:
+				
+			  contador_alarma++;
+			  if(contador_alarma == 3){
+					contador_alarma=0;
+					osSignalSet(id_SNTP, 0x0004);
+				}
 				for(ii=0; ii<5; ii++){
 					
 					GPIO_PinWrite(1,23,1);
@@ -41,16 +90,6 @@ void alarma (void const *arg){
 }
 
 
-void pantalla_RTC (void const *arg){
-  
-	while(1){
-		//get_time( &hora_ver, &min_ver, &sec_ver); //Recogemos la hora actual
-		//pintarHoraPrimeraLinea(hora_ver,min_ver,sec_ver);
-    //get_date( &dia_ver,&mes_ver,&ano_ver ); //Recogemos la fecha actual
-		//pintarFechaLinea( dia_ver,mes_ver,ano_ver );
-		osDelay(250);
-	}
-}
 
 void init_RTC( void ){
 	
@@ -61,8 +100,9 @@ void init_RTC( void ){
 	LPC_RTC->CCR &= ~(3<<2); //Por si acaso no estan a cero
 	LPC_RTC->CCR &= ~(1<<1); //Se resetea el divisor interno
 	//del oscilador hasta que valga 0
-  osThreadCreate(osThread(pantalla_RTC), NULL);
+  
 	id_alarma=osThreadCreate (osThread(alarma), NULL);
+	id_pantalla=osThreadCreate (osThread(pantalla), NULL);
 	GPIO_SetDir(1,23,GPIO_DIR_OUTPUT);
   NVIC_EnableIRQ( RTC_IRQn );
 	//LPC_RTC->CCR |= (1<<4); //Registro de calibracion

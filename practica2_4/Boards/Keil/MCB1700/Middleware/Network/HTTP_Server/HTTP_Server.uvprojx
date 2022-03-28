@@ -448,6 +448,26 @@
               <FileType>5</FileType>
               <FilePath>.\RTC.h</FilePath>
             </File>
+            <File>
+              <FileName>SNTP.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SNTP.c</FilePath>
+            </File>
+            <File>
+              <FileName>SNTP.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SNTP.h</FilePath>
+            </File>
+            <File>
+              <FileName>gestor_pulsador.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\gestor_pulsador.c</FilePath>
+            </File>
+            <File>
+              <FileName>gestor_pulsador.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\gestor_pulsador.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1026,6 +1046,26 @@
               <FileType>5</FileType>
               <FilePath>.\RTC.h</FilePath>
             </File>
+            <File>
+              <FileName>SNTP.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SNTP.c</FilePath>
+            </File>
+            <File>
+              <FileName>SNTP.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SNTP.h</FilePath>
+            </File>
+            <File>
+              <FileName>gestor_pulsador.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\gestor_pulsador.c</FilePath>
+            </File>
+            <File>
+              <FileName>gestor_pulsador.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\gestor_pulsador.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1224,6 +1264,13 @@
           <targetInfo name="LPC1768 Flash"/>
         </targetInfos>
       </component>
+      <component Cbundle="MDK-Pro Net_v6" Cclass="Network" Cgroup="Service" Csub="SNTP Client" Cvendor="Keil" Cversion="6.7.7" condition="Network UDP">
+        <package name="MDK-Middleware" schemaVersion="1.4" url="http://www.keil.com/pack/" vendor="Keil" version="7.13.0"/>
+        <targetInfos>
+          <targetInfo name="LPC1758 Flash"/>
+          <targetInfo name="LPC1768 Flash"/>
+        </targetInfos>
+      </component>
       <component Cbundle="MDK-Pro Net_v6" Cclass="Network" Cgroup="Service" Csub="Web Server Compact" Cvendor="Keil" Cversion="6.7.7" condition="Network Web Server Compact">
         <package name="MDK-Middleware" schemaVersion="1.4" url="http://www.keil.com/pack/" vendor="Keil" version="7.13.0"/>
         <targetInfos>
@@ -1374,6 +1421,15 @@
       <file attr="config" category="header" name="Network_v6\Config\Net_Config_HTTP_Server.h" version="5.0.4">
         <instance index="0">RTE\Network\Net_Config_HTTP_Server.h</instance>
         <component Cbundle="MDK-Pro Net_v6" Cclass="Network" Cgroup="Service" Csub="Web Server Compact" Cvendor="Keil" Cversion="6.7.7" condition="Network Web Server Compact"/>
+        <package name="MDK-Middleware" schemaVersion="1.4" url="http://www.keil.com/pack/" vendor="Keil" version="7.13.0"/>
+        <targetInfos>
+          <targetInfo name="LPC1758 Flash"/>
+          <targetInfo name="LPC1768 Flash"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="Network_v6\Config\Net_Config_SNTP_Client.h" version="5.0.0">
+        <instance index="0">RTE\Network\Net_Config_SNTP_Client.h</instance>
+        <component Cbundle="MDK-Pro Net_v6" Cclass="Network" Cgroup="Service" Csub="SNTP Client" Cvendor="Keil" Cversion="6.7.7" condition="Network UDP"/>
         <package name="MDK-Middleware" schemaVersion="1.4" url="http://www.keil.com/pack/" vendor="Keil" version="7.13.0"/>
         <targetInfos>
           <targetInfo name="LPC1758 Flash"/>
