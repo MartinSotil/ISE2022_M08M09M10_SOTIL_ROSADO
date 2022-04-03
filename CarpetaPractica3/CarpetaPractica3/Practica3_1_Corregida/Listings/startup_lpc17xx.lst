@@ -432,13 +432,12 @@ ARM Macro Assembler    Page 7
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=.\objects\startup_lpc17xx.d -o.\objects\startup_lpc17xx.o -I.\RTE\
-Device\LPC1768 -I.\RTE\_Target_1 -IC:\Users\Propietario\AppData\Local\Arm\Packs
-\ARM\CMSIS\5.8.0\CMSIS\Core\Include -IC:\Users\Propietario\AppData\Local\Arm\Pa
-cks\Keil\LPC1700_DFP\2.5.0\Device\Include -IC:\Users\Propietario\AppData\Local\
-Arm\Packs\Keil\LPC1700_DFP\2.5.0\RTE_Driver --predefine="__UVISION_VERSION SETA
- 534" --predefine="_RTE_ SETA 1" --predefine="LPC175x_6x SETA 1" --predefine="_
-RTE_ SETA 1" --list=.\listings\startup_lpc17xx.lst RTE\Device\LPC1768\startup_L
-PC17xx.s
+Device\LPC1768 -I.\RTE\_Target_1 -IC:\Users\usuario\AppData\Local\Arm\Packs\ARM
+\CMSIS\5.8.0\CMSIS\Core\Include -IC:\Users\usuario\AppData\Local\Arm\Packs\Keil
+\LPC1700_DFP\2.5.0\Device\Include -IC:\Users\usuario\AppData\Local\Arm\Packs\Ke
+il\LPC1700_DFP\2.5.0\RTE_Driver --predefine="__UVISION_VERSION SETA 534" --pred
+efine="_RTE_ SETA 1" --predefine="LPC175x_6x SETA 1" --predefine="_RTE_ SETA 1"
+ --list=.\listings\startup_lpc17xx.lst RTE\Device\LPC1768\startup_LPC17xx.s
 
 
 

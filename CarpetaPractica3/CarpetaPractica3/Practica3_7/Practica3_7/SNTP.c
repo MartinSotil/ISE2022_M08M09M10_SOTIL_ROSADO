@@ -26,7 +26,7 @@ void init_SNTP(void){
 		
 		switch(sntp_pulso.value.signals){
 		
-			  case 0x0004:
+			  case 0x0004: //Senal para sincronizar SNTP
 				get_time_ntp();
 				osSignalClear(id_SNTP, 0x0004);
 				break;
@@ -60,7 +60,7 @@ void reloj_sntp( uint32_t tiempo_segundos ){
 	time_t rawtime = tiempo_segundos;
 	ts = *localtime(&rawtime);
 	
-	h= ts.tm_hour + 1; //Porque estamos en horario de verano
+	h= ts.tm_hour + 2; //Porque estamos en horario de verano
 	if (h>23) h=0; //Para corregir la suma que hemos hecho antes
 	m=ts.tm_min;
 	s=ts.tm_sec;

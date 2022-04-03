@@ -111,39 +111,39 @@ void cgi_process_data (uint8_t code, const char *data, uint32_t len) {
       // First character is non-null, string exists
       if (strcmp (var, "led0=on") == 0) {
         P2 |= 0x01;
-				modificarXposicion(22,0x00040000,P2,11); //P2 es uint8_t
+				modificarXposicion(22,0x00040000,P2,11);
       }
       else if (strcmp (var, "led1=on") == 0) {
         P2 |= 0x02;
-				modificarXposicion(22,0x00040000,P2,11); //P2 es uint8_t
+				modificarXposicion(22,0x00040000,P2,11);
       }
       else if (strcmp (var, "led2=on") == 0) {
         P2 |= 0x04;
-				modificarXposicion(22,0x00040000,P2,11); //P2 es uint8_t
+				modificarXposicion(22,0x00040000,P2,11);
       }
       else if (strcmp (var, "led3=on") == 0) {
         P2 |= 0x08;
-				modificarXposicion(22,0x00040000,P2,11); //P2 es uint8_t
+				modificarXposicion(22,0x00040000,P2,11);
       } 
 			else if (strcmp (var, "led0=off") == 0) {
         P2 |= !(0x01);
-				modificarXposicion(22,0x00040000,P2,11); //P2 es uint8_t
+				modificarXposicion(22,0x00040000,P2,11);
       }
       else if (strcmp (var, "led1=off") == 0) {
         P2 |= !(0x02);
-				modificarXposicion(22,0x00040000,P2,11); //P2 es uint8_t
+				modificarXposicion(22,0x00040000,P2,11);
       }
       else if (strcmp (var, "led2=off") == 0) {
         P2 |= !(0x04);
-				modificarXposicion(22,0x00040000,P2,11); //P2 es uint8_t
+				modificarXposicion(22,0x00040000,P2,11);
       }
       else if (strcmp (var, "led3=off") == 0) {
         P2 |= !(0x08);
-				modificarXposicion(22,0x00040000,P2,11); //P2 es uint8_t
+				modificarXposicion(22,0x00040000,P2,11);
       }
       else if (strcmp (var, "ctrl=Browser") == 0) {
-				LEDrun=false;
 				modificarXposicion(22,0x00040000,0x00,10);
+				LEDrun=false;
       }
 			else if (strcmp (var, "ctrl=Running Lights") == 0) {
 				modificarXposicion(22,0x00040000,0x01,10);

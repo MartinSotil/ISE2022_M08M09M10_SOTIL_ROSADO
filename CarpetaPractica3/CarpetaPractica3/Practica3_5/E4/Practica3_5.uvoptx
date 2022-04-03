@@ -152,9 +152,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>186</LineNumber>
+          <LineNumber>185</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>1774</Address>
+          <Address>634</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -163,7 +163,7 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>.\principal.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\P1_2\principal.c\186</Expression>
+          <Expression>\\P1_2\principal.c\185</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -185,15 +185,10 @@
         <Ww>
           <count>3</count>
           <WinNumber>1</WinNumber>
-          <ItemText>arrayRetorno</ItemText>
-        </Ww>
-        <Ww>
-          <count>4</count>
-          <WinNumber>1</WinNumber>
           <ItemText>lecturaArray</ItemText>
         </Ww>
         <Ww>
-          <count>5</count>
+          <count>4</count>
           <WinNumber>1</WinNumber>
           <ItemText>arrayRetorno</ItemText>
         </Ww>

@@ -41,3 +41,7 @@ void watchdog_Alimentacion( void ){
 	LPC_WDT->WDFEED = 0x55;
 	__enable_irq();
 }
+
+bool reset_por_watchdog(void){
+	return (LPC_WDT->WDMOD & 0x04);
+}

@@ -168,9 +168,9 @@ void c_entry (void)
 //  _DBG_("Demo termination");  
 }
 
-uint8_t array[16]={0xA,0xB,0xC,0xA,0xB,0xC,0xA,0xB,0xC,0xA,0xB,0xC,0xA,0xB,0xC,0xE};
+uint8_t array[NUM_MAX_POS]={0xA,0xB,0xC,0xA,0xB,0xC,0xA,0xB,0xC,0xA,0xB,0xC,0xA,0xB,0xC,0xE};
 uint8_t lectura;
-uint8_t arrayRetorno[16];
+uint8_t arrayRetorno[NUM_MAX_POS];
 
 /*********************************************************************//**
  * @brief		The main program
@@ -184,10 +184,9 @@ uint8_t arrayRetorno[16];
 {
    c_entry();
 	 borrar_sector(8);
-	 escribirMemoria(8,array);
-	 leerFlash(0x00008000,&lectura);
-	 leerFlashxPosicionesyRetornarArray( 0x00008000,16, arrayRetorno);
-	 //modificarXposicion(0x00000008,0xE,2);
+	 escribirMemoria(8,0x00008000,array);
+	 leerFlashxPosicionesyRetornarArray( 0x00008000, arrayRetorno);
+   modificarXposicion(8,0x00008000,0xE,14);
    return 0;
 }
 #ifdef  DEBUG

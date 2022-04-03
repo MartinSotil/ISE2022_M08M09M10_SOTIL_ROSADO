@@ -10,6 +10,7 @@
 ".\output\gestor_pulsador.o"
 ".\output\gestion_flash.o"
 ".\output\lpc17xx_iap.o"
+".\output\led_rgb.o"
 "C:\Users\usuario\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\LIB\ARM\RTX_CM3.lib"
 ".\output\rtx_conf_cm.o"
 ".\output\phy_dp83848c.o"

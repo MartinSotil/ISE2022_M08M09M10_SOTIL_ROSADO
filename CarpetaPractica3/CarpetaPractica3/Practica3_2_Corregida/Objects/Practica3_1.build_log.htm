@@ -27,28 +27,22 @@ Project File Date:  03/26/2022
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
+compiling watchdog.c...
+watchdog.h(11): warning:  #1-D: last line of file ends without a newline
+  #endif
+watchdog.c(47): warning:  #1-D: last line of file ends without a newline
+  }
+watchdog.c: 2 warnings, 0 errors
+compiling timers.c...
 compiling main.c...
-watchdog.h(9): warning:  #1-D: last line of file ends without a newline
+watchdog.h(11): warning:  #1-D: last line of file ends without a newline
   #endif
 Led_RGB.h(11): warning:  #1-D: last line of file ends without a newline
   #endif
 main.c: 2 warnings, 0 errors
-compiling watchdog.c...
-watchdog.h(9): warning:  #1-D: last line of file ends without a newline
-  #endif
-watchdog.c(43): warning:  #1-D: last line of file ends without a newline
-  }
-watchdog.c: 2 warnings, 0 errors
-compiling timers.c...
-compiling Led_RGB.c...
-Led_RGB.h(11): warning:  #1-D: last line of file ends without a newline
-  #endif
-Led_RGB.c(26): warning:  #1-D: last line of file ends without a newline
-  }
-Led_RGB.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=2476 RO-data=252 RW-data=24 ZI-data=768  
-".\Objects\Practica3_1.axf" - 0 Error(s), 6 Warning(s).
+Program Size: Code=2488 RO-data=252 RW-data=24 ZI-data=768  
+".\Objects\Practica3_1.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -79,23 +73,23 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: Keil::Device:GPDMA:1.2.0
-      Source file:   RTE_Driver\GPDMA_LPC17xx.c
       Include file:  RTE_Driver\GPDMA_LPC17xx.h
+      Source file:   RTE_Driver\GPDMA_LPC17xx.c
 
    * Component: Keil::Device:GPIO:1.1.0
-      Source file:   RTE_Driver\GPIO_LPC17xx.c
       Include file:  RTE_Driver\GPIO_LPC17xx.h
+      Source file:   RTE_Driver\GPIO_LPC17xx.c
 
    * Component: Keil::Device:PIN:1.0.0
-      Source file:   RTE_Driver\PIN_LPC17xx.c
       Include file:  RTE_Driver\PIN_LPC17xx.h
+      Source file:   RTE_Driver\PIN_LPC17xx.c
 
    * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device\Source\system_LPC17xx.c
       Include file:  Device\Include\LPC17xx.h
       Include file:  RTE_Driver\Config\RTE_Device.h
       Source file:   Device\Source\ARM\startup_LPC17xx.s
-Build Time Elapsed:  00:00:16
+      Source file:   Device\Source\system_LPC17xx.c
+Build Time Elapsed:  00:00:10
 </pre>
 </body>
 </html>

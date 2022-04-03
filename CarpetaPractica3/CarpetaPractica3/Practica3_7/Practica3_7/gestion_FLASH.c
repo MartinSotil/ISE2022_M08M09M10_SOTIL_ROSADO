@@ -19,8 +19,8 @@ void escribirMemoria( int sector,uint32_t flashStart, uint8_t buffer[] ){
 	IAP_STATUS_CODE status;
 	uint8_t* destino;
 	uint8_t buffer_aux[256];
-	
 	destino=(uint8_t*)(flashStart);
+	//__disable_irq();
 	for(k=0;k<256;k++){
 		if(k<NUM_MAX_POS){
 			buffer_aux[k]=buffer[k];
@@ -30,7 +30,7 @@ void escribirMemoria( int sector,uint32_t flashStart, uint8_t buffer[] ){
 	}
 	borrar_sector(sector);
   status=CopyRAM2Flash( destino, buffer_aux , IAP_WRITE_256 );
-	
+	//__enable_irq();
 	if(status != CMD_SUCCESS){
 		while(1);
 	}

@@ -25,7 +25,7 @@ int main(void){
 	watchdog_init(125000000);
 	inicializarTimer0(500000000); //Para el led RGB (4 segudnos)
 	
-	if(LPC_WDT->WDMOD & 0x04){
+	if(reset_por_watchdog()){
 		led_rojo();
 	}
 	else{

@@ -11,7 +11,7 @@
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>5060422::V5.06 update 4 (build 422)::ARMCC</pCCUsed>
-      <uAC6>0</uAC6>
+      <uAC6>8</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>LPC1758</Device>
@@ -493,6 +493,16 @@
               <FileType>5</FileType>
               <FilePath>.\lpc_types.h</FilePath>
             </File>
+            <File>
+              <FileName>Led_RGB.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Led_RGB.c</FilePath>
+            </File>
+            <File>
+              <FileName>Led_RGB.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Led_RGB.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -757,11 +767,11 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4099</DriverSelection>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
-          <bUseTDR>0</bUseTDR>
-          <Flash2>BIN\CMSIS_AGDI.dll</Flash2>
-          <Flash3>"" ()</Flash3>
+          <bUseTDR>1</bUseTDR>
+          <Flash2>BIN\UL2CM3.DLL</Flash2>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut>Web.c</pFcarmOut>
           <pFcarmGrp>Source</pFcarmGrp>
@@ -936,7 +946,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>1</Optim>
+            <Optim>4</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>0</OneElfS>
@@ -1115,6 +1125,16 @@
               <FileName>lpc_types.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\lpc_types.h</FilePath>
+            </File>
+            <File>
+              <FileName>Led_RGB.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Led_RGB.c</FilePath>
+            </File>
+            <File>
+              <FileName>Led_RGB.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Led_RGB.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1506,5 +1526,14 @@
       </file>
     </files>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>HTTP_Server</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>

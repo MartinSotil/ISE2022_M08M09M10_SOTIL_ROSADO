@@ -1,5 +1,8 @@
 #include "gestion_FLASH.h"
 
+uint8_t *destino;
+int i;
+
 void borrar_sector( int numSector ){
 	
 	IAP_STATUS_CODE status;
@@ -12,22 +15,20 @@ void borrar_sector( int numSector ){
 }
 
 
-void escribirMemoria( int numSector, uint8_t buffer[] ){
+void escribirMemoria( int sector,uint32_t flashStart, uint8_t buffer[] ){
 	IAP_STATUS_CODE status;
-	uint32_t numAux;
-	uint8_t *destino;
-	numAux= (uint32_t)(numSector*0x00001000);
-	destino= (uint8_t*)(0x8000);
+	uint8_t* destino;
 	uint8_t buffer_aux[256];
-	int i;
+	
+	destino=(uint8_t*)(flashStart);
 	for(i=0;i<256;i++){
-		if(i<16){
+		if(i<NUM_MAX_POS){
 			buffer_aux[i]=buffer[i];
 		}else{
-			buffer_aux[i]=0xF;
+			buffer_aux[i]=0xFF;
 		}
 	}
-	
+	borrar_sector(sector);
   status=CopyRAM2Flash( destino, buffer_aux , IAP_WRITE_256 );
 	
 	if(status != CMD_SUCCESS){
@@ -35,40 +36,29 @@ void escribirMemoria( int numSector, uint8_t buffer[] ){
 	}
 }
 
-void escribirMemoria2( int sector, uint8_t buffer[] ){
-	IAP_STATUS_CODE status;
-	uint32_t numAux;
-	uint8_t *destino;
-	numAux= (uint32_t)(sector*0x00001000);
-	destino= (uint8_t*)(0x8000);
-	
-  status=CopyRAM2Flash( destino, buffer , IAP_WRITE_256 );
-	
-	if(status != CMD_SUCCESS){
-		while(1);
-	}
-}
-
-void leerFlash(  uint32_t pos,uint8_t *lectura ){
+uint8_t leerFlash(  uint32_t pos ){
+	uint8_t lectura;
 	uint8_t *posicion;
-	posicion=(uint8_t*)(0x000+pos);
-	*lectura=(uint8_t)*posicion;
+	posicion=(uint8_t*)(pos);
+	lectura=*posicion;
+	return lectura;
 }
 
-void leerFlashxPosicionesyRetornarArray( uint32_t posOrigen, int numPosiciones, uint8_t buffer[] ){
+void leerFlashxPosicionesyRetornarArray( uint32_t posOrigen, uint8_t buffer[] ){
 	int i;
-	uint8_t retorno;
-	for(i=0;i<numPosiciones;i++){
-		leerFlash(posOrigen+i,&retorno);
-		buffer[i]=retorno;
+	for(i=0;i<NUM_MAX_POS;i++){
+		buffer[i]=leerFlash(posOrigen+i);
 	}
 }
 
-void modificarXposicion( uint32_t posicionInicialSector, uint8_t valorNuevo,int posicionCambiar ){
-	uint8_t copiaFlash[256];
-	leerFlashxPosicionesyRetornarArray( posicionInicialSector,256,copiaFlash);
-  copiaFlash[posicionCambiar]=valorNuevo;
-	escribirMemoria2(8,copiaFlash);
+void modificarXposicion( int sector,uint32_t posicionInicialSector, uint8_t valorNuevo,int posicionCambiar ){
+	  uint8_t copiaFlash[NUM_MAX_POS];
+	  if( posicionCambiar> NUM_MAX_POS){
+		  while(1);
+	  }
+	  leerFlashxPosicionesyRetornarArray(posicionInicialSector,copiaFlash);
+	  copiaFlash[posicionCambiar-1]=valorNuevo;
+	  escribirMemoria( sector,posicionInicialSector, copiaFlash);
 }
 
 
