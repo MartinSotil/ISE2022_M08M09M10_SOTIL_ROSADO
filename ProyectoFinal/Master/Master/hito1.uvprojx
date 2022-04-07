@@ -313,7 +313,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>1</Optim>
+            <Optim>4</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -389,9 +389,14 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>Thread.c</FileName>
+              <FileName>Maestro_I2C.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Maestro_I2C.h</FilePath>
+            </File>
+            <File>
+              <FileName>Maestro_I2C.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Thread.c</FilePath>
+              <FilePath>.\Maestro_I2C.c</FilePath>
             </File>
           </Files>
         </Group>

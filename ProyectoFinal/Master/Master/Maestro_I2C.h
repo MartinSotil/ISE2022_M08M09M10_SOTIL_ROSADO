@@ -1,5 +1,5 @@
-#ifndef ESCLAVO_I2C_H
-#define ESCLAVO_I2C_H
+#ifndef MAESTRO_I2C_H
+#define MAESTRO_I2C_H
 
 #define Esclavo_I2C_ADDR       	      0x28      
  
@@ -23,7 +23,7 @@
 
 #define SIG_Esclavo_I2C							0x0001
 
-void Esclavo_I2C (void const *argument);
-int Init_Esclavo_I2C(void);
+void Maestro_I2C (void const *argument);
+int Init_Maestro_I2C(void);
 
 #endif

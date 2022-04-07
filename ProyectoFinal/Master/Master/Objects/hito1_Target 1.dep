@@ -1,24 +1,27 @@
 Dependencies for Project 'hito1', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::ARMCC
-F (.\main.c)(0x623D968B)(-c --cpu Cortex-M3 -D__RTX -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver-D__UVISION_VERSION="534" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (osObjects.h)(0x60D44B52)
+F (.\main.c)(0x624F1F46)(-c --cpu Cortex-M3 -D__RTX -g -O3 --apcs=interwork --split_sections-I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver-D__UVISION_VERSION="534" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (osObjects.h)(0x624F0458)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC\cmsis_os.h)(0x60D43D42)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E9122)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E8E9122)
-F (.\Thread.c)(0x624C6D77)(-c --cpu Cortex-M3 -D__RTX -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver-D__UVISION_VERSION="534" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\objects\thread.o --omf_browse .\objects\thread.crf --depend .\objects\thread.d)
+I (Maestro_I2C.h)(0x624F1F47)
+F (.\Maestro_I2C.h)(0x624F1F47)()
+F (.\Maestro_I2C.c)(0x624F1F6E)(-c --cpu Cortex-M3 -D__RTX -g -O3 --apcs=interwork --split_sections-I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver-D__UVISION_VERSION="534" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\objects\maestro_i2c.o --omf_browse .\objects\maestro_i2c.crf --depend .\objects\maestro_i2c.d)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC\cmsis_os.h)(0x60D43D42)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E9122)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E8E9122)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include\Driver_I2C.h)(0x60D43D42)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include\Driver_Common.h)(0x60D43D42)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E8E9122)
+I (Maestro_I2C.h)(0x624F1F47)
 F (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\LIB\ARM\RTX_CM3.lib)(0x60D43D42)()
-F (RTE\CMSIS\RTX_Conf_CM.c)(0x623D9108)(-c --cpu Cortex-M3 -D__RTX -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver-D__UVISION_VERSION="534" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\objects\rtx_conf_cm.o --omf_browse .\objects\rtx_conf_cm.crf --depend .\objects\rtx_conf_cm.d)
+F (RTE\CMSIS\RTX_Conf_CM.c)(0x624F0456)(-c --cpu Cortex-M3 -D__RTX -g -O3 --apcs=interwork --split_sections-I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver-D__UVISION_VERSION="534" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\objects\rtx_conf_cm.o --omf_browse .\objects\rtx_conf_cm.crf --depend .\objects\rtx_conf_cm.d)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC\cmsis_os.h)(0x60D43D42)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E9122)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E8E9122)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC\RTX_CM_lib.h)(0x60D43D42)
-F (C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver\I2C_LPC17xx.c)(0x5BA1FB5C)(-c --cpu Cortex-M3 -D__RTX -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver-D__UVISION_VERSION="534" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\objects\i2c_lpc17xx.o --omf_browse .\objects\i2c_lpc17xx.crf --depend .\objects\i2c_lpc17xx.d)
+F (C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver\I2C_LPC17xx.c)(0x5BA1FB5C)(-c --cpu Cortex-M3 -D__RTX -g -O3 --apcs=interwork --split_sections-I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver-D__UVISION_VERSION="534" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\objects\i2c_lpc17xx.o --omf_browse .\objects\i2c_lpc17xx.crf --depend .\objects\i2c_lpc17xx.d)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E8E9122)
 I (C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver\I2C_LPC17xx.h)(0x558299FA)
 I (C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include\LPC17xx.h)(0x58493182)
@@ -34,9 +37,9 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E8E9122)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include\Driver_I2C.h)(0x60D43D42)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include\Driver_Common.h)(0x60D43D42)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E8E9122)
-I (.\RTE\Device\LPC1768\RTE_Device.h)(0x623D90CD)
-I (.\RTE\_Target_1\RTE_Components.h)(0x623D8FBF)
-F (C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver\GPIO_LPC17xx.c)(0x558299FA)(-c --cpu Cortex-M3 -D__RTX -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver-D__UVISION_VERSION="534" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\objects\gpio_lpc17xx.o --omf_browse .\objects\gpio_lpc17xx.crf --depend .\objects\gpio_lpc17xx.d)
+I (.\RTE\Device\LPC1768\RTE_Device.h)(0x624F0456)
+I (.\RTE\_Target_1\RTE_Components.h)(0x624F0456)
+F (C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver\GPIO_LPC17xx.c)(0x558299FA)(-c --cpu Cortex-M3 -D__RTX -g -O3 --apcs=interwork --split_sections-I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver-D__UVISION_VERSION="534" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\objects\gpio_lpc17xx.o --omf_browse .\objects\gpio_lpc17xx.crf --depend .\objects\gpio_lpc17xx.d)
 I (C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include\LPC17xx.h)(0x58493182)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm3.h)(0x60D43D42)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E9122)
@@ -46,7 +49,7 @@ I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D43
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\mpu_armv7.h)(0x60D43D42)
 I (C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include\system_LPC17xx.h)(0x58493182)
 I (C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver\GPIO_LPC17xx.h)(0x558299FA)
-F (C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver\PIN_LPC17xx.c)(0x558299FA)(-c --cpu Cortex-M3 -D__RTX -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver-D__UVISION_VERSION="534" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\objects\pin_lpc17xx.o --omf_browse .\objects\pin_lpc17xx.crf --depend .\objects\pin_lpc17xx.d)
+F (C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver\PIN_LPC17xx.c)(0x558299FA)(-c --cpu Cortex-M3 -D__RTX -g -O3 --apcs=interwork --split_sections-I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver-D__UVISION_VERSION="534" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\objects\pin_lpc17xx.o --omf_browse .\objects\pin_lpc17xx.crf --depend .\objects\pin_lpc17xx.d)
 I (C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include\LPC17xx.h)(0x58493182)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm3.h)(0x60D43D42)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E9122)
@@ -57,9 +60,9 @@ I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\mpu_armv7.h)(0x60D43D4
 I (C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include\system_LPC17xx.h)(0x58493182)
 I (C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver\PIN_LPC17xx.h)(0x558299FA)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E8E9122)
-F (RTE\Device\LPC1768\RTE_Device.h)(0x623D90CD)()
-F (RTE\Device\LPC1768\startup_LPC17xx.s)(0x58493F92)(--cpu Cortex-M3 --pd "__RTX SETA 1" -g --apcs=interwork -I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver--pd "__UVISION_VERSION SETA 534" --pd "_RTE_ SETA 1" --pd "LPC175x_6x SETA 1" --pd "_RTE_ SETA 1"--list .\listings\startup_lpc17xx.lst --xref -o .\objects\startup_lpc17xx.o --depend .\objects\startup_lpc17xx.d)
-F (RTE\Device\LPC1768\system_LPC17xx.c)(0x58493F92)(-c --cpu Cortex-M3 -D__RTX -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver-D__UVISION_VERSION="534" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\objects\system_lpc17xx.o --omf_browse .\objects\system_lpc17xx.crf --depend .\objects\system_lpc17xx.d)
+F (RTE\Device\LPC1768\RTE_Device.h)(0x624F0456)()
+F (RTE\Device\LPC1768\startup_LPC17xx.s)(0x624F0456)(--cpu Cortex-M3 --pd "__RTX SETA 1" -g --apcs=interwork -I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver--pd "__UVISION_VERSION SETA 534" --pd "_RTE_ SETA 1" --pd "LPC175x_6x SETA 1" --pd "_RTE_ SETA 1"--list .\listings\startup_lpc17xx.lst --xref -o .\objects\startup_lpc17xx.o --depend .\objects\startup_lpc17xx.d)
+F (RTE\Device\LPC1768\system_LPC17xx.c)(0x624F0456)(-c --cpu Cortex-M3 -D__RTX -g -O3 --apcs=interwork --split_sections-I.\RTE\Device\LPC1768-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include-IC:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver-D__UVISION_VERSION="534" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\objects\system_lpc17xx.o --omf_browse .\objects\system_lpc17xx.crf --depend .\objects\system_lpc17xx.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E9122)
 I (C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include\LPC17xx.h)(0x58493182)
 I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm3.h)(0x60D43D42)

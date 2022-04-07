@@ -130,8 +130,12 @@ void Esclavo_I2C  (void const *argument) {
 				ganancia_actual=REG_GANANCIA_100;
 			
 		}else if(buffer_esclavo[0]==REG_HABILITAR_UMBRAL){
+      
+      EstadoOverload_Actual=true;
 		
 		}else if(buffer_esclavo[0]==REG_DESHABILITAR_UMBRAL){
+      
+      EstadoOverload_Actual=false;
 			
 		}else if(buffer_esclavo[0]==REG_HABILITAR_INTERRUPCIONES){
 		

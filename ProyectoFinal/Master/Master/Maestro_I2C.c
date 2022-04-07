@@ -1,7 +1,7 @@
 
 #include "cmsis_os.h"                                           // CMSIS RTOS header file
 #include "Driver_I2C.h"
-
+#include "Maestro_I2C.h"
 /*----------------------------------------------------------------------------
  *      Thread 1 'Thread_Name': Sample thread
  *---------------------------------------------------------------------------*/
@@ -10,10 +10,24 @@
 #define LM75B_I2C_ADDR       	0x28      
  
  
-#define REG_TEMP    					0x01
-#define REG_CONF	    				0x01
-#define	REG_THYST   					0x02
-#define REG_TOS     					0x03
+#define Esclavo_I2C_ADDR       	      0x28      
+ 
+ 
+#define REG_GANANCIA_1   					    				0x01
+#define REG_GANANCIA_5   					    				0x02
+#define REG_GANANCIA_10    					  				0x03
+#define REG_GANANCIA_50    					  				0x04
+#define REG_GANANCIA_100    									0x05
+
+
+#define REG_PROGRAMAR_UMBRAL	    						0x06
+#define REG_HABILITAR_UMBRAL	    						0x07
+#define REG_DESHABILITAR_UMBRAL   						0x08
+#define REG_PETICION_GANANCIA	    						0x09
+#define REG_PETICION_OVERLOAD	        				0x0A
+#define REG_HABILITAR_INTERRUPCIONES	    		0x0B
+#define REG_DESHABILITAR_INTERRUPCIONES	   		0x0C
+#define REG_PETICION_ESTADO_OVERLOAD		   		0x0D
 
 #define SIG_TEMP							0x0001
 
@@ -33,8 +47,8 @@ static volatile uint32_t I2C_Event;
 
 
 void Thread (void const *argument);                             // thread function
-osThreadId tid_Thread;                                          // thread id
-osThreadDef (Thread, osPriorityNormal, 1, 0);                   // thread object
+osThreadId tid_Maestro_I2C;                                          // thread id
+osThreadDef (Maestro_I2C, osPriorityNormal, 1, 0);                   // thread object
  
 /* I2C Signal Event function callback */
 void I2C_SignalEvent (uint32_t event) {
@@ -51,7 +65,7 @@ void I2C_SignalEvent (uint32_t event) {
   if (event & ARM_I2C_EVENT_TRANSFER_DONE) {
     /* Transfer or receive is finished */
 		
-		osSignalSet (tid_Thread, SIG_TEMP);
+		osSignalSet (tid_Maestro_I2C, SIG_TEMP);
 
   }
  
@@ -95,33 +109,41 @@ void Init_i2c(void){
 	
 }
 
-int Init_Thread (void) {
+int Init_Maestro_I2C (void) {
 
-  tid_Thread = osThreadCreate (osThread(Thread), NULL);
-  if (!tid_Thread) return(-1);
+  tid_Maestro_I2C = osThreadCreate (osThread(Maestro_I2C), NULL);
+  if (!tid_Maestro_I2C) return(-1);
   
   return(0);
 }
 
-void Thread (void const *argument) {
+/*void enviar_comando(uint8_t comando){
+	osSignalSet();
+	cmd=comando;
+}*/
+
+void Maestro_I2C (void const *argument) {
 
   while (1) {
-    osDelay(2000);
+    //osDelay(2000);
 		
-		cmd = REG_TEMP;
+		
+		
+		
+		
+		
+		cmd = REG_GANANCIA_1;
 		status = I2Cdrv->MasterTransmit(addr, &cmd, 1, true);
 		osSignalWait (SIG_TEMP, osWaitForever); 
 		
 	
 		
-		status = I2Cdrv->MasterReceive(addr, buf, 2, true);
+		status = I2Cdrv->MasterReceive(addr, buf, 1, true);
 		osSignalWait (SIG_TEMP, osWaitForever); 
 		
 
 		
-		temp = ((buf[0] << 8) | buf[1]) >> 5;
-	
-		temperatura = temp * 0.125;
+
 		nlect++;
 		
 				
