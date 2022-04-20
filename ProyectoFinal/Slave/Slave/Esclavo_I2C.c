@@ -1,6 +1,3 @@
-
-#include "cmsis_os.h"                                           // CMSIS RTOS header file
-#include "Driver_I2C.h"
 #include "Esclavo_I2C.h"
 
 /*----------------------------------------------------------------------------
@@ -11,14 +8,14 @@
 
 
 uint32_t addr = Esclavo_I2C_ADDR;
-int32_t status = 0, nlect = 0;
+int32_t status = 0, contador = 0;
 uint8_t cmd, buffer_esclavo[10];
 float temperatura;
 uint8_t Overload_actual;
+bool estado_led=false;
 bool enviar_data=false;
 uint8_t ganancia_actual= 0x01;
 uint8_t EstadoOverload_Actual=0x00;
-
 
 /* I2C driver instance */
 extern ARM_DRIVER_I2C            Driver_I2C2;
@@ -32,6 +29,9 @@ void Esclavo_I2C (void const *argument);                             // thread f
 osThreadId tid_Esclavo_I2C;                                          // thread id
 osThreadDef (Esclavo_I2C, osPriorityNormal, 1, 0);                   // thread object
  
+void Interrupcion_led (void const *argument);                             // thread function
+osThreadId tid_int_led;                                          // thread id
+osThreadDef (Interrupcion_led, osPriorityNormal, 1, 0);                   // thread object
 /* I2C Signal Event function callback */
 void I2C_SignalEvent (uint32_t event) {
  
@@ -92,92 +92,105 @@ void Init_i2c(void){
 }
 
 int Init_Esclavo_I2C(void) {
-
+  GPIO_SetDir(0,23,GPIO_DIR_OUTPUT);
   tid_Esclavo_I2C = osThreadCreate (osThread(Esclavo_I2C), NULL);
+	tid_int_led=osThreadCreate (osThread(Interrupcion_led), NULL);
   if (!tid_Esclavo_I2C) return(-1);
+	if (!tid_int_led) return(-1);
   
   return(0);
+}
+
+void Interrupcion_led(void const *argument){
+	while(1){
+		osSignalWait (0x02	, osWaitForever);
+		estado_led=((~cmd)&0x04);
+	  GPIO_PinWrite(0,23,0);
+		osDelay(10);
+		GPIO_PinWrite(0,23,estado_led);
+		osDelay(10);
+		GPIO_PinWrite(0,23,0);
+		osSignalClear(tid_int_led,0x02);
+	}
 }
 
 void Esclavo_I2C  (void const *argument) {
 	 
 	
   while (1) {
-    osDelay(2000);
-   
-		
+    //osDelay(2000);
     I2Cdrv->SlaveReceive(buffer_esclavo,1);
     osSignalWait (SIG_Esclavo_I2C	, osWaitForever);
-		
-		if(buffer_esclavo[0]==REG_GANANCIA_1){ 
-				
-				ganancia_actual=REG_GANANCIA_1;
-			
-		}else if(buffer_esclavo[0]==REG_GANANCIA_5){
-			
-				ganancia_actual=REG_GANANCIA_5;
-			
-		}else if(buffer_esclavo[0]==REG_GANANCIA_10){
-			
-				ganancia_actual=REG_GANANCIA_10;
-			
-		}else if(buffer_esclavo[0]==REG_GANANCIA_50){
-		
-				ganancia_actual=REG_GANANCIA_50;
-			
-		}else if(buffer_esclavo[0]==REG_GANANCIA_100){
-			
-				ganancia_actual=REG_GANANCIA_100;
-			
-		}else if(buffer_esclavo[0]==REG_HABILITAR_UMBRAL){
-      
-      EstadoOverload_Actual=true;
-		
-		}else if(buffer_esclavo[0]==REG_DESHABILITAR_UMBRAL){
-      
-      EstadoOverload_Actual=false;
-			
-		}else if(buffer_esclavo[0]==REG_HABILITAR_INTERRUPCIONES){
-		
-		}else if(buffer_esclavo[0]==REG_DESHABILITAR_INTERRUPCIONES){
-		
-		}else if(buffer_esclavo[0]==REG_PROGRAMAR_UMBRAL){
-		
-			Overload_actual=buffer_esclavo[1];
-			
-		}else if(buffer_esclavo[0]==REG_PETICION_GANANCIA	 ){
-			
-			enviar_data=true;
-			cmd=ganancia_actual;
-			
-		}else if(buffer_esclavo[0]==REG_PETICION_OVERLOAD	 ){
-			
-			enviar_data=true;
-			cmd=Overload_actual;
-		
-	
-		}else if(buffer_esclavo[0]==REG_PETICION_ESTADO_OVERLOAD	 ){
-			
-			enviar_data=true;
-			cmd=EstadoOverload_Actual;
-		
-	
-		}
-		
-		
-		
-		
+		//analizador_tramas(buffer_esclavo[0]);																	
+		//Complemento a 1 del dato recibido:		
+		cmd=~buffer_esclavo[0];
+		osSignalSet(tid_int_led,0x02);
+		enviar_data=true; //Para siempre responder en este caso
+		//Para retransmitir el dato si hace falta
 		if(enviar_data){
 			status = I2Cdrv->SlaveTransmit(&cmd,1);
 			osSignalWait (SIG_Esclavo_I2C	, osWaitForever);  
 			enviar_data=false; 
 		}
-
 		
-
-		nlect++;
+		contador++;
 		
 				
     osThreadYield ();                                           // suspend thread
   }
 } 
+
+void analizador_tramas(uint8_t trama){
+	    switch(trama){
+			case REG_GANANCIA_1:
+				ganancia_actual=REG_GANANCIA_1;
+			break;
+			
+		  case REG_GANANCIA_5:
+			  ganancia_actual=REG_GANANCIA_5;
+			break;
+						
+			case REG_GANANCIA_10:
+				ganancia_actual=REG_GANANCIA_10;
+			break;
+									
+			case REG_GANANCIA_50:
+				ganancia_actual=REG_GANANCIA_50;
+			break;
+												
+			case REG_GANANCIA_100:
+				ganancia_actual=REG_GANANCIA_100;
+			break;
+															
+		  case REG_HABILITAR_UMBRAL:
+				EstadoOverload_Actual=true;
+			break;
+																		
+			case REG_HABILITAR_INTERRUPCIONES:
+				
+			break;
+			
+			case REG_DESHABILITAR_INTERRUPCIONES:
+				
+			break;
+															
+		  case REG_PROGRAMAR_UMBRAL:
+				Overload_actual=buffer_esclavo[1];
+			break;
+																		
+			case REG_PETICION_GANANCIA:
+				enviar_data=true;
+			  cmd=ganancia_actual;
+			break;
+		  
+			case REG_PETICION_OVERLOAD:
+				enviar_data=true;
+			  cmd=Overload_actual;
+			break;
+																		
+			case REG_PETICION_ESTADO_OVERLOAD:
+				enviar_data=true;
+			  cmd=EstadoOverload_Actual;
+			break;
+		}
+}
