@@ -1,6 +1,10 @@
 #ifndef ESCLAVO_I2C_H
 #define ESCLAVO_I2C_H
 
+#include "cmsis_os.h"                                           // CMSIS RTOS header file
+#include "Driver_I2C.h"
+#include "GPIO_LPC17xx.h"
+
 #define Esclavo_I2C_ADDR       	      0x28      
  
  
@@ -23,6 +27,9 @@
 
 #define SIG_Esclavo_I2C							0x0001
 
+void Init_i2c(void);
 void Esclavo_I2C (void const *argument);
+int Init_Esclavo_I2C(void);
+void analizador_tramas(uint8_t trama);
 
 #endif

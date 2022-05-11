@@ -5,10 +5,10 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.34.0.0
 Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: DTE DTE UPM Flex license: MDK Professional 5.34 (Flex) (mdk_pro) Operation stops: 8 Mar 2024
+License Information: Diego Rosado Quirós, UPM, LIC=----
  
 Tool Versions:
-Toolchain:       MDK Professional 5.34 (Flex)  Version: 5.34.0.0
+Toolchain:       MDK-Lite  Version: 5.34.0.0
 Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 7 (build 960)
 Assembler:       Armasm.exe V5.06 update 7 (build 960)
@@ -21,26 +21,21 @@ Target DLL:      CMSIS_AGDI.dll V1.32.13.0
 Dialog DLL:      TCM.DLL V1.48.0.0
  
 <h2>Project:</h2>
-I:\ISE\ISE2022_M08M09M10_SOTIL_ROSADO\Proyecto final\Slave\hito1.uvprojx
-Project File Date:  03/25/2022
+C:\Users\usuario\Desktop\Slave\Slave\hito1.uvprojx
+Project File Date:  04/08/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Rebuild target 'Target 1'
-compiling main.c...
-compiling Thread.c...
-Thread.c(90): warning:  #550-D: variable "status"  was set but never used
+Build target 'Target 1'
+compiling Esclavo_I2C.c...
+Esclavo_I2C.c(86): warning:  #550-D: variable "status"  was set but never used
   	int32_t status;
-Thread.c: 1 warning, 0 errors
-compiling RTX_Conf_CM.c...
-compiling I2C_LPC17xx.c...
-assembling startup_LPC17xx.s...
-compiling GPIO_LPC17xx.c...
-compiling PIN_LPC17xx.c...
-compiling system_LPC17xx.c...
+Esclavo_I2C.c(196): warning:  #1-D: last line of file ends without a newline
+  }
+Esclavo_I2C.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=10724 RO-data=472 RW-data=100 ZI-data=3772  
-".\Objects\hito1.axf" - 0 Error(s), 1 Warning(s).
+Program Size: Code=9824 RO-data=496 RW-data=96 ZI-data=3776  
+".\Objects\hito1.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -65,11 +60,11 @@ Package Vendor: Keil
 <h2>Collection of Component include folders:</h2>
   .\RTE\Device\LPC1768
   .\RTE\_Target_1
-  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include
-  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Driver\Include
-  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC
-  C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\Device\Include
-  C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.5.0\RTE_Driver
+  C:\Users\usuario\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+  C:\Users\usuario\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Driver\Include
+  C:\Users\usuario\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\RTOS\RTX\INC
+  C:\Users\usuario\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.5.0\Device\Include
+  C:\Users\usuario\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.5.0\RTE_Driver
 
 <h2>Collection of Component Files used:</h2>
 
@@ -81,19 +76,19 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: ARM::CMSIS:RTOS:Keil RTX:4.82.0
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Timer.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Mutex.c
       Include file:  CMSIS\RTOS\RTX\INC\cmsis_os.h
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\main.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MailQueue.c
+      Source file:   CMSIS\RTOS\RTX\SRC\ARM\SVC_Table.s
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MsgQueue.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MemPool.c
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Semaphore.c
+      Library file:  CMSIS\RTOS\RTX\LIB\ARM\RTX_CM3.lib
+      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Thread.c
       Source file:   CMSIS\RTOS\RTX\Templates\RTX_Conf_CM.c
       Include file:  CMSIS\RTOS\RTX\UserCodeTemplates\osObjects.h
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\main.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Mutex.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MsgQueue.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Thread.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Semaphore.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MailQueue.c
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\Timer.c
-      Library file:  CMSIS\RTOS\RTX\LIB\ARM\RTX_CM3.lib
-      Source file:   CMSIS\RTOS\RTX\UserCodeTemplates\MemPool.c
-      Source file:   CMSIS\RTOS\RTX\SRC\ARM\SVC_Table.s
 
    * Component: Keil::CMSIS Driver:I2C:2.5.0
       Source file:   RTE_Driver\I2C_LPC17xx.c
@@ -107,11 +102,11 @@ Package Vendor: Keil
       Source file:   RTE_Driver\PIN_LPC17xx.c
 
    * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device\Source\ARM\startup_LPC17xx.s
-      Include file:  RTE_Driver\Config\RTE_Device.h
       Include file:  Device\Include\LPC17xx.h
+      Include file:  RTE_Driver\Config\RTE_Device.h
       Source file:   Device\Source\system_LPC17xx.c
-Build Time Elapsed:  00:00:11
+      Source file:   Device\Source\ARM\startup_LPC17xx.s
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
